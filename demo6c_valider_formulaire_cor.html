@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Démo 6 corrigé</title>
+<meta charset="UTF-8">
+<link href="styles.css" type="text/css" rel="stylesheet">
+<script src="demo6c_valider_formulaire_cor.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <h3>Inscription programme Webmestre</h3>
+  <form action="envoyer.html" target="_blank" method="post" onsubmit="return valider();">
+  <div class="row">
+	<div class="col-50">
+		<label for="prenom">Prénom</label>
+		<input type="text" id="prenom" name="prenom" 
+			   required pattern="[A-Za-z]+"
+			   oninvalid="validerPrenom(this);"
+			   oninput="setCustomValidity('')"
+			   >
+	</div>
+	<div class="col-50">
+		<label for="nom">Nom</label>
+		<input type="text" id="nom" name="nom"
+			   required pattern="[A-Za-z]+"
+			   oninvalid="validerNom(this);"
+			   oninput="setCustomValidity('')"
+			   >
+	</div>
+  </div>
+  <div class="row">
+	<div class="col-50">
+		<label for="adresse">Adresse (no,rue)</label>
+		<input type="text" id="adresse" name="adresse"
+			   required
+			   oninvalid="validerAdresse(this);"
+			   oninput="validerAdresse(this);"
+			   >
+	</div>
+	<div class="col-50">
+		<label for="codepostal">Code Postal</label>
+		<input type="text" id="codepostal" name="codepostal"
+			   required
+			   oninvalid="validerCodePostal(this);"
+			   oninput="validerCodePostal(this);"
+			   >
+	</div>
+  </div>
+  <div class="row">
+	<div class="col-50">
+		<label for="pays">Province</label>
+		<select id="pays" name="pays">
+			   <option value="Alberta">Alberta</option>
+			   <option value="Colombie-Brittannique">Colombie-Brittannique</option>
+			   <option value="Ile-du-Prince-Edouard">Ile-du-Prince-Edouard</option>
+			   <option value="Nouveau-Brunswick">Nouveau-Brunswick</option>
+			   <option value="Nouvelle-Écosse">Nouvelle-Écosse</option>
+			   <option value="Ontario">Ontario</option>
+			   <option value="Québec">Québec</option>
+			   <option value="Saskatchewan">Saskatchewan</option>
+			   <option value="Terre-Neuve">Terre-Neuve</option>
+		</select>
+	</div>
+	<div class="col-50">
+		<label for="courriel">Courriel</label>
+		<input type="email" id="courriel" name="courriel"
+			   required
+			   oninvalid="validerCourriel(this);"
+			   oninput="validerCourriel(this);"
+			   >
+	</div>
+  </div>
+  <div class="row">
+	<div class="col-50">
+		<p><label for="cours1">Cours</label></p>
+		<input type="checkbox" id="cours1" name="cours1" value="HTML"
+			   onclick="effacerMessageCours()"
+			   >HTML<br>
+		<input type="checkbox" id="cours2" name="cours2" value="JavaScript"
+			   onclick="effacerMessageCours()"
+			   >JavaScript<br>
+		<input type="checkbox" id="cours3" name="cours3" value="Java"
+			   onclick="effacerMessageCours()"
+			   >Java<br> 
+		<input type="checkbox" id="cours4" name="cours4" value="Programmation Serveur"
+			   onclick="effacerMessageCours()"
+			   >Programmation Serveur
+  	</div>
+	<div class="col-50">
+		<p><label for="session1">Session</label></p>
+		<input type="radio" id="session1" name="session" value="Été 2018"
+			   onclick="effacerMessageSession()"
+			   >Été 2018<br>
+		<input type="radio" id="session2" name="session" value="Automne 2018"
+			   onclick="effacerMessageSession()"
+			   >Automne 2018<br>
+		<input type="radio" id="session3" name="session" value="Hiver 2019"
+			   onclick="effacerMessageSession()"
+			   >Hiver 2019 
+  	</div>
+  </div>
+  <div class="row">
+	<input type="submit" value="Envoyez">
+  </div>
+  </form>
+</div>
+
+</body>
+</html>
