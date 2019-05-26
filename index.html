@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Formulaire programmation</title>
+      <link rel="stylesheet" href="style.css">
+      <script src="formulaire.js"></script>
+   </head>
+   <body>
+      <form action="envoyer.html" class="formulaire" target="_blank" method="post" onsubmit="return valider();">
+         <!--titre-->
+		 
+         <h1 class="formulaire__titre">Sondage sur la vie étudiante au cégep</h1>
+         <div class="row">
+            <!--colonne gauche-->
+            <div class="column">
+			   
+               <label for="prenom" class="formulaire__label" >Prénom</label>
+               <input type="text" id="prenom" name="prenom" class="formulaire__input" 
+			   required pattern="[A-Za-z]+"
+			   oninvalid="validerPrenom(this);"
+			   oninput="setCustomValidity('')"
+			   >
+			   
+               <label for="age" class="formulaire__label">Âge</label>
+               <select id="age" name="age" class="formulaire__select">
+                  <option class="select" value="select">Qu'elle est votre âge?</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25+">25+</option>
+                
+               </select>
+			   
+          
+               <label for="pays" class="formulaire__label" required pattern="[A-Za-z]+"
+			   oninvalid="validerCode(this);"
+			   oninput="ValiderCode(this)">Code permanent</label>
+               <input type="text" id="codepermanent" name="codepermanent" class="formulaire__input">
+			   
+               <label for="couleur" class="formulaire__label" required pattern="[A-Za-z]+"
+			   oninvalid="validerCouleur(this);"
+			   oninput="setCustomValidity('')">Couleur préferée</label>
+               <input type="text" id="couleur" name="couleur" class="formulaire__input">
+               <label for="artiste" class="formulaire__label" required pattern="[A-Za-z]+"
+			   oninvalid="validerArtiste(this);"
+			   oninput="setCustomValidity('')">Artiste préferé
+               </label>
+               <input type="text" id="artiste" name="artiste" class="formulaire__input">
+               <label for="musique" class="formulaire__label" required pattern="[A-Za-z]+"
+			   oninvalid="validerMusique(this);"
+			   oninput="setCustomValidity('')">Musique préferée</label>
+               <input type="text" id="musique" name="musique" class="formulaire__input">
+               <!--↓↓section coment courrant J'ecoute de la musique↓↓-->
+               <label for="select1__musique" class="formulaire__label">J'écoute de la musique:</label><br>
+               <div class="formulaire__input">
+                  <input type="radio" id="select1__musique" name="musique__hab" value="Très souvent" onclick="effacerMessageMusique()"
+                     >Très souvent <br>
+                  <input type="radio" id="select2__musique" name="musique__hab" value="De temps en temps" onclick="effacerMessageMusique()"
+                     >De temps en temps<br>
+                  <input type="radio" id="select3__musique" name="musique__hab" value="Rarement" onclick="effacerMessageMusique()"
+                     >Rarement
+               </div>
+               <br>
+               <br>
+               <!--↓↓section genre de musique↓↓-->
+               <label for="genre__musique1" class="formulaire__label">Genre de musique</label><br>
+               <div class="formulaire__input">
+                  <!--fond tableau-->
+                  <input type="checkbox" id="genre__musique1" name="genre__musique1" value="Blues" onclick="effacerMessageGenre__musique()">Blues&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__musique8" name="genre__musique8" value="Country" onclick="effacerMessageGenre__musique()">Country<br>
+                  <input type="checkbox" id="genre__musique2" name="genre__musique2" value="Disco" onclick="effacerMessageGenre__musique()">Disco&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__musique9" name="genre__musique9" value="Fulk" onclick="effacerMessageGenre__musique()">Fulk<br>
+                  <input type="checkbox" id="genre__musique3" name="genre__musique3" value="Funk" onclick="effacerMessageGenre__musique()">Funk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__musique10" name="genre__musique10" value="Jazz" onclick="effacerMessageGenre__musique()">Jazz<br>
+                  <input type="checkbox" id="genre__musique4" name="genre__musique4" value="Rai" onclick="effacerMessageGenre__musique()">Rai&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__musique11" name="genre__musique11" value="Reggae" onclick="effacerMessageGenre__musique()">Reggae<br>
+                  <input type="checkbox" id="genre__musique5" name="genre__musique5" value="Rap" onclick="effacerMessageGenre__musique()">Rap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__musique12" name="genre__musique12" value="salsa" onclick="effacerMessageGenre__musique()">Salsa<br>
+                  <input type="checkbox" id="genre__musique6" name="genre__musique6" value="Rock" onclick="effacerMessageGenre__musique()">Rock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__musique13" name="genre__musique13" value="Techno" onclick="effacerMessageGenre__musique()">Techno<br>
+                  <input type="checkbox" id="genre__musique7" name="genre__musique7" value="Soul" onclick="effacerMessageGenre__musique()">Soul<br>
+               </div>
+           
+              
+            </div>
+            <!--↓↓----------------------------------colomne de droite-------------------------------------------↓↓-->
+            <div class="column">
+               <!--↓↓section info↓↓-->
+               <label for="nom" class="formulaire__label" required pattern="[A-Za-z]+" oninvalid="validerNom(this);"
+			   oninput="setCustomValidity('')">Nom</label>
+               <input type="text" id="nom" name="nom" class="formulaire__input">
+               <label for="technique" class="formulaire__label">Technique</label>
+               <select id="technique1" name="technique" class="formulaire__select">
+                  <option class="select" value="--Sélectionnez la technique--">--Sélectionnez la technique--</option>
+                  <option value="Analyses biomédicales">Analyses biomédicales</option>
+                  <option value="Architecture">Architecture</option>
+                  <option value="Biotechnologies">Biotechnologies</option>
+                  <option value="Bureautique">Bureautique</option>
+                  <option value="Comptabilité">Comptabilité</option>
+                  <option value="Comptabillité et gestion">Comptabillité et gestion</option>
+                  <option value="Desing d'intérieur">Desing d'intérieur</option>
+                  <option value="Documentation">Documentation</option>
+                  <option value="Éducation à l'enfance">Éducation à l'enfance</option>
+                  <option value="Éducation spécialisée">Éducation spécialisée</option>
+                  <option value="Génie civil">Génie civil</option>
+                  <option value="Génie de l'éectronique programmable">Génie de l'éectronique programmable</option>
+                  <option value="Génie mécanique">Génie mécanique</option>
+                  <option value="Géomatique">Géomatique</option>
+                  <option value="Gestion de commerces">Gestion de commerces</option>
+                  <option value="Hygiène dentaire">Hygiène dentaire</option>
+                  <option value="Inhalothérapie">Inhalothérapie</option>
+                  <option value="technique">Intégration multimédia</option>
+                  <option value="technique">Programmation et sécurité</option>
+                  <option value="Réseaux et cybersécurité">Réseaux et cybersécurité</option>
+                  <option value="Soins infirmiers">Soins infirmiers</option>
+                  <option value="Soins préhospitaliers d'urgence">Soins préhospitaliers d'urgence</option>
+                  <option value="Techniques de diététique">Techniques de diététique</option>
+                  <option value="Techniques juridiques">Techniques juridiques</option>
+				  <option value="Techniques policières">Techniques policières</option>
+                  <option value="Technologie de la mécanique du bâtiment">Technologie de la mécanique du bâtiment</option>
+               </select>
+               <!--↓↓section choses preferées↓↓-->
+               <label for="animalprefere" class="formulaire__label" required pattern="[A-Za-z]+"
+			   oninvalid="validerAnimal(this);"
+			   oninput="setCustomValidity('')">Animal préferé</label>
+               <input type="text" id="animal" name="animal" class="formulaire__input">
+               <label for="chiffreprefere" class="formulaire__label" required pattern="[0-9]+" oninvalid="validerChiffre(this);" oninput="setCustomValidity('')">Chiffre préferé</label>
+               <input type="text" id="chiffre" name="chiffre" class="formulaire__input">
+               <label for="acteurprefere" class="formulaire__label" required pattern="[A-Za-z]+"
+			   oninvalid="validerActeur(this);"
+			   oninput="setCustomValidity('')">Acteur préferé </label>
+               <input type="text" id="acteur" name="acteur" class="formulaire__input">
+               <label for="filmprefere" class="formulaire__label" required pattern="[A-Za-z]+"
+			   oninvalid="validerFilm(this);"
+			   oninput="setCustomValidity('')">Film préferé</label>
+               <input type="text" id="film" name="film" class="formulaire__input">
+               <!--section coment courrant J'ecoute des films -->
+               <label for="jecoutedesfilms" class="formulaire__label">J'ecoute des films:</label>
+               <br>
+               <div class="formulaire__input">
+                  <input type="radio" id="film__hab1" name="film__hab" value="Très souvent" onclick="effacerMessageFilm()"
+                     >Très souvent <br>
+                  <input type="radio" id="film__hab2" name="film__hab" value="De temps en temps" onclick="effacerMessageFilm()"
+                     >De temps en temps<br>
+                  <input type="radio" id="film__hab3" name="film__hab" value="Rarement" onclick="effacerMessageFilm()"
+                     >Rarement 
+               </div>
+               <br>
+               <br>
+               <!--↓↓section genre de film↓↓-->
+               <label for="genresdefilm" class="formulaire__label">Genres de film</label><br>
+               <div class="formulaire__input">
+                  <!--fond tableau-->
+                  <input type="checkbox" id="genre__film1" name="genre__film1" value="Animation">Animation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__film8" name="genre__film8" value="Aventure" onclick="effacerMessageGenre__film()">Aventure<br>
+                  <input type="checkbox" id="genre__film2" name="genre__film2" value="Biopic" >Biopic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__film9" name="genre__film9" value="Comédie" onclick="effacerMessageGenre__Film()">Comédie<br>
+                  <input type="checkbox" id="genre__film3" name="genre__film3" value="Documentaire" >Documentaire    <input type="checkbox" id="genre__film10" name="genre__film10" value="Drame" onclick="effacerMessageGenre__film()">Drame<br>
+                  <input type="checkbox" id="genre__film4" name="genre__film4" value="Fantastique" >Fantastique&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__film11" name="genre__film11" value="Guerre" onclick="effacerMessageGenre__film()">Guerre<br>
+                  <input type="checkbox" id="genre__film5" name="genre__film5" value="Horreur" >Horreur&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="genre__film12" name="genre__film12" value="Science-fiction" onclick="effacerMessageGenre__film()">Science-fiction<br>
+                  <input type="checkbox" id="genre__film6" name="genre__film6" value="Thriler" >Thriler<br><br>
+               </div>
+            </div>
+         </div>
+         <!--↓↓section prof↓↓-->
+       
+         <!--↓↓section envoyer↓↓-->
+         <input type="submit" class="formulaire__submit" value="Envoyer">  
+         <br>
+      </form>
+   </body>
+</html>
